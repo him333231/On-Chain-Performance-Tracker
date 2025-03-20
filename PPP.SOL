@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract PerformanceTracker {
+
+    // Mapping to store user performance data by address
+    mapping(address => uint256) public performanceData;
+
+    // Function to record performance data (e.g., score or achievement)
+    function recordPerformance(uint256 score) public {
+        performanceData[msg.sender] = score;
+    }
+
+    // Function to retrieve performance data of the caller
+    function getPerformance() public view returns (uint256) {
+        return performanceData[msg.sender];
+    }
+
+    // Function to retrieve performance data of any user by their address
+    function getPerformanceByAddress(address user) public view returns (uint256) {
+        return performanceData[user];
+    }
+}
